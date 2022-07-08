@@ -9,13 +9,15 @@ function inti(){
     let left = document.getElementById("left");
     let right = document.getElementById("right");
     let flightStatus = document.getElementById("flightStatus");
+    let shuttleBackground = document.getElementById("shuttleBackground");
 
     function statusChange(){
         flightStatus.innerHTML = "Shuttle in flight.";
+        shuttleBackground.style.color = "blue";
     }
 
     if(window.confirm("Is the shuttle ready for takeoff!" === true)){
-        takeoff.addEventListener("click",statusChange);
+        takeoff.addEventListener("click",statusChange());
     }
 
 
