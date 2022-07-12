@@ -16,10 +16,10 @@ function inti(){
         shuttleBackground.style.color = "blue";
     }
 
-    if(window.confirm("Is the shuttle ready for takeoff!" === true)){
-        takeoff.addEventListener("click",statusChange());
-    }
-
-
 }
+
+if(window.confirm("Is the shuttle ready for takeoff!" === true)){
+    takeoff.addEventListener("click",statusChange());
+}
+
 window.addEventListener("load",inti);
