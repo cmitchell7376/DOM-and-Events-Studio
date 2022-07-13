@@ -32,4 +32,14 @@ window.addEventListener("load",function() {
         rocket.style.bottom = "0px";
     });
 
+    missionAbort.addEventListener("click",function(){
+        let results = window.confirm("Confirm that you want to abort the mission.");
+
+        if(results === true){
+            flightStatus.innerHTML = "Mission aborted.";
+            shuttleBackground.style.backgroundColor = "green";
+            rocket.style.bottom = "0px";
+        }
+    });
+
 });
