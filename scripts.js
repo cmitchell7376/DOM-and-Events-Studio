@@ -13,7 +13,7 @@ window.addEventListener("load",function() {
     let shuttleBackground = document.getElementById("shuttleBackground");
     let rocket = this.document.getElementById("rocket");
 
-    takeoff.addEventListener("click",function(){;
+    takeoff.addEventListener("click",function(){
         let results = window.confirm("Is the shuttle ready for takeoff!");
         let launch = 0;
         launch += 10;
@@ -23,7 +23,13 @@ window.addEventListener("load",function() {
             shuttleBackground.style.backgroundColor = "blue";
             rocket.style.bottom = String(launch) + "px";
         }
+    });
 
+    landing.addEventListener("click",function(){
+        let results = window.alert("The shuttle is landing. Landing gear engaged.");
+        flightStatus.innerHTML = "The shuttle has landed";
+        shuttleBackground.style.backgroundColor = "green";
+        rocket.style.bottom = "0px";
     });
 
 });
