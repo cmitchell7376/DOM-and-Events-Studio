@@ -14,6 +14,7 @@ window.addEventListener("load",function() {
     let rocket = document.getElementById("rocket");
     let spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
     let launch = 0;
+    let horiz = 0;
 
     takeoff.addEventListener("click",function(){
         let results = window.confirm("Is the shuttle ready for takeoff!");
@@ -57,6 +58,16 @@ window.addEventListener("load",function() {
         launch -= 10;
         rocket.style.bottom = String(launch) + "px";
         spaceShuttleHeight.innerHTML = String(launch * 1000);
+    });
+
+    left.addEventListener("click",function(){
+        horiz -= 10;
+        rocket.style.left = String(horiz) + "px";
+    });
+
+    right.addEventListener("click",function(){
+        horiz += 10;
+        rocket.style.left = String(horiz) + "px";
     });
 
 });
