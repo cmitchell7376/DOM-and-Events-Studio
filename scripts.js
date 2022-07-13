@@ -14,7 +14,7 @@ window.addEventListener("load",function() {
     let rocket = document.getElementById("rocket");
     let spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
     let launch = 0;
-    let horiz = 0;
+    let horiz = 120;
 
     takeoff.addEventListener("click",function(){
         let results = window.confirm("Is the shuttle ready for takeoff!");
@@ -32,6 +32,7 @@ window.addEventListener("load",function() {
         flightStatus.innerHTML = "The shuttle has landed";
         shuttleBackground.style.backgroundColor = "green";
         rocket.style.bottom = "0px";
+        rocket.style.left = "120px";
         spaceShuttleHeight.innerHTML = "0";
         launch = 0;
     });
@@ -43,6 +44,7 @@ window.addEventListener("load",function() {
             flightStatus.innerHTML = "Mission aborted.";
             shuttleBackground.style.backgroundColor = "green";
             rocket.style.bottom = "0px";
+            rocket.style.left = "120px";
             spaceShuttleHeight.innerHTML = "0";
             launch = 0;
         }
@@ -52,22 +54,40 @@ window.addEventListener("load",function() {
         launch += 10;
         rocket.style.bottom = String(launch) + "px";
         spaceShuttleHeight.innerHTML = String(launch * 1000);
+        if(launch * 1000 === 320000){
+            rocket.style.bottom = "0px";
+            spaceShuttleHeight.innerHTML = "0";
+            launch = 0;
+        }
     });
 
     down.addEventListener("click",function(){
         launch -= 10;
         rocket.style.bottom = String(launch) + "px";
         spaceShuttleHeight.innerHTML = String(launch * 1000);
+        if(launch * 1000 < 0){
+            rocket.style.bottom = "0px";
+            spaceShuttleHeight.innerHTML = "0";
+            launch = 0;
+        }
     });
 
     left.addEventListener("click",function(){
         horiz -= 10;
         rocket.style.left = String(horiz) + "px";
+        if(horiz < -20){
+            rocket.style.left = "0px";
+            horiz = 0;
+        }
     });
 
     right.addEventListener("click",function(){
         horiz += 10;
         rocket.style.left = String(horiz) + "px";
+        if(horiz > 250){
+            rocket.style.left = "240px";
+            horiz = 240;
+        }
     });
 
 });
