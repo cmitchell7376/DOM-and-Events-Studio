@@ -11,17 +11,18 @@ window.addEventListener("load",function() {
     let right = document.getElementById("right");
     let flightStatus = document.getElementById("flightStatus");
     let shuttleBackground = document.getElementById("shuttleBackground");
-    let rocket = this.document.getElementById("rocket");
+    let rocket = document.getElementById("rocket");
+    let spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
+    let launch = 0;
+    launch += 10;
 
     takeoff.addEventListener("click",function(){
         let results = window.confirm("Is the shuttle ready for takeoff!");
-        let launch = 0;
-        launch += 10;
-
         if(results === true){
             flightStatus.innerHTML = "Shuttle in flight";
             shuttleBackground.style.backgroundColor = "blue";
             rocket.style.bottom = String(launch) + "px";
+            spaceShuttleHeight.innerHTML = String(launch * 1000);
         }
     });
 
